@@ -1,0 +1,334 @@
+.sidebar {
+    max-width: 350px;
+    width: 100%;
+    background-color: #f3f3f3;
+    position: sticky;
+    left: 0;
+    top: 75px;
+    height: calc(100vh - 75px);
+    overflow-y: scroll;
+    overflow: auto;
+
+    @include breakpoint(normal) {
+        max-width: 300px;
+    }
+
+    @include breakpoint(ipad) {
+        position: fixed;
+        z-index: 99;
+        transform: translate(-100%, 0);
+        @include transition;
+    }
+
+    @include breakpoint(mobile) {
+        max-width: 0;
+        top: 70px;
+        height: calc(100vh - 70px);
+    }
+
+    .sideMap {
+        padding: 50px 35px 0;
+
+        @include breakpoint(normal) {
+            padding: 30px 25px 0;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 20px 20px 0;
+            width: 280px;
+        }
+
+        .progress {
+            background-color: $color_white;
+            border: 1px solid #b7b7b7;
+            border-radius: 22px;
+
+            @include breakpoint(mobile) {
+                height: 12px;
+            }
+
+            .progress-bar {
+                border-radius: 22px;
+                background-color: $color_primary;
+            }
+        }
+
+        .site-menu {
+            li {
+                margin: 0;
+
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+
+                    @include breakpoint(mobile) {
+                        margin-bottom: 2px;
+                    }
+                }
+
+                a {
+                    color: $color_text;
+                    font-family: $font_title;
+                    // font-size: rem(16px);
+                    font-size: rem(12px);
+                    font-weight: 400;
+                    display: block;
+                    padding: 5px 0;
+                    line-height: 1.4;
+
+                    &:hover {
+                        color: $color_primary;
+                    }
+
+                    &.active {
+                        font-weight: 700;
+                        color: $color_primary;
+                    }
+                }
+
+                &.sub-dropdown {
+                    >a {
+                        position: relative;
+
+                        &::before {
+                            content: "\f0da";
+                            position: absolute;
+                            left: -7px;
+                            top: 50%;
+                            transform: translate(0, -50%);
+                            transform: translate(-100%, -50%);
+                            color: #ccc;
+                            font-family: "Font Awesome 5 Free";
+                            font-weight: 900;
+                            // font-size: rem(18px);
+                            font-size: rem(15px);
+                            line-height: 1;
+
+                            @include breakpoint(mobile) {
+                                left: -4px;
+                                font-size: rem(12px);
+                            }
+                        }
+
+                        &.clicked {
+                            &::before {
+                                content: "\f0d7";
+                            }
+                        }
+                    }
+
+                    &.open {
+                        >a {
+                            &::before {
+                                content: "\f0d7";
+                            }
+                        }
+
+                        >ul {
+                            display: block !important;
+                            height: auto !important;
+                            margin: 5px 0 10px !important;
+                        }
+                    }
+                }
+
+                >ul {
+                    // margin-bottom: 10px;
+                    margin: 5px 0 10px;
+
+                    li {
+                        &:not(:last-child) {
+                            margin-bottom: 3px;
+                        }
+
+                        >a {
+                            font-size: rem(12px);
+                            padding: 5px 0 5px 20px;
+                        }
+                    }
+                }
+            }
+
+            li:not(.sub-dropdown, .locked) {
+                position: relative;
+                padding-right: 20px;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    // width: 14px;
+                    // height: 14px;
+                    width: 12px;
+                    height: 12px;
+                    border: 0.5px solid #434343;
+                    border-radius: 50%;
+                    background-color: $color_white;
+                }
+
+                &.marked-complete {
+                    &:after {
+                        border-color: $color_primary;
+                        background-color: $color_primary;
+                    }
+                }
+            }
+
+            li.sub-dropdown {
+                ul {
+                    display: none;
+
+                    li:not(.locked) {
+                        padding-right: 15px;
+
+                        &::after {
+                            // width: 12px;
+                            // height: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sideBox {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 30px 35px;
+
+        @include breakpoint(ipad) {
+            padding: 30px 25px;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 25px 20px;
+            width: 280px;
+        }
+
+        h3,
+        p {
+            color: $color_white;
+        }
+
+        p {
+            margin-bottom: 30px;
+
+            @include breakpoint(ipad) {
+                margin-bottom: 25px;
+            }
+        }
+    }
+
+    &.free-report {
+        .sideMap {
+            .site-menu {
+                li {
+                    &::after {
+                        display: none;
+                    }
+
+                    &.locked {
+                        position: relative;
+
+                        a {
+                            color: #b7b7b7;
+                        }
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: -5px;
+                            top: calc(50% - 1px);
+                            transform: translate(-100%, -50%);
+                            background-image: url('../images/Evolving Love Icon - Lock (Grey).png');
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            width: 12px;
+                            height: 12px;
+                        }
+
+                        &::after {
+                            content: "UPGRADE TO UNLOCK";
+                            font-size: rem(12px);
+                            padding: 5px 20px;
+                            border-radius: 30px;
+                            line-height: normal;
+                            @include btn(600, uppercase);
+                            font-family: $font_title;
+                            background-color: $color_primary;
+                            border: 1px solid #595959;
+                            color: $color_white;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            opacity: 0;
+                            visibility: hidden;
+                            pointer-events: none;
+                            white-space: nowrap;
+                            @include transition;
+                        }
+
+                        &:hover {
+                            &::after {
+                                top: 0;
+                                opacity: 1;
+                                visibility: visible;
+                            }
+
+                            a {
+                                color: transparent;
+                            }
+                        }
+                    }
+
+                    &.sub-dropdown {
+                        ul {
+                            li {
+                                padding-right: 0;
+
+                                &.locked {
+                                    &::before {
+                                        left: 14px;
+                                    }
+
+                                    &::after {
+                                        left: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.overlay-layer {
+    @include transition;
+}
+
+.aside_active {
+    @include breakpoint(ipad) {
+        overflow: hidden;
+
+        .sidebar {
+            transform: none;
+            max-width: 280px;
+        }
+
+        .overlay-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 98;
+            backdrop-filter: blur(1px);
+        }
+    }
+}

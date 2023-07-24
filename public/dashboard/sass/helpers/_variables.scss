@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-Thin.eot');
+    src: url('../sitefonts/ProductSans-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-Thin.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-Thin.woff') format('woff'),
+        url('../sitefonts/ProductSans-Thin.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-Thin.svg#ProductSans-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-ThinItalic.eot');
+    src: url('../sitefonts/ProductSans-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-ThinItalic.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-ThinItalic.woff') format('woff'),
+        url('../sitefonts/ProductSans-ThinItalic.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-ThinItalic.svg#ProductSans-ThinItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-Light.eot');
+    src: url('../sitefonts/ProductSans-Light.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-Light.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-Light.woff') format('woff'),
+        url('../sitefonts/ProductSans-Light.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-Light.svg#ProductSans-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-LightItalic.eot');
+    src: url('../sitefonts/ProductSans-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-LightItalic.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-LightItalic.woff') format('woff'),
+        url('../sitefonts/ProductSans-LightItalic.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-LightItalic.svg#ProductSans-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-Regular.eot');
+    src: url('../sitefonts/ProductSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-Regular.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-Regular.woff') format('woff'),
+        url('../sitefonts/ProductSans-Regular.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-Regular.svg#ProductSans-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-Italic.eot');
+    src: url('../sitefonts/ProductSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-Italic.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-Italic.woff') format('woff'),
+        url('../sitefonts/ProductSans-Italic.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-Italic.svg#ProductSans-Italic') format('svg');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-Medium.eot');
+    src: url('../sitefonts/ProductSans-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-Medium.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-Medium.woff') format('woff'),
+        url('../sitefonts/ProductSans-Medium.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-Medium.svg#ProductSans-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-MediumItalic.eot');
+    src: url('../sitefonts/ProductSans-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-MediumItalic.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-MediumItalic.woff') format('woff'),
+        url('../sitefonts/ProductSans-MediumItalic.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-MediumItalic.svg#ProductSans-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-Bold.eot');
+    src: url('../sitefonts/ProductSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-Bold.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-Bold.woff') format('woff'),
+        url('../sitefonts/ProductSans-Bold.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-Bold.svg#ProductSans-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-BoldItalic.eot');
+    src: url('../sitefonts/ProductSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-BoldItalic.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-BoldItalic.woff') format('woff'),
+        url('../sitefonts/ProductSans-BoldItalic.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-BoldItalic.svg#ProductSans-BoldItalic') format('svg');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-Black.eot');
+    src: url('../sitefonts/ProductSans-Black.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-Black.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-Black.woff') format('woff'),
+        url('../sitefonts/ProductSans-Black.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-Black.svg#ProductSans-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../sitefonts/ProductSans-BlackItalic.eot');
+    src: url('../sitefonts/ProductSans-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('../sitefonts/ProductSans-BlackItalic.woff2') format('woff2'),
+        url('../sitefonts/ProductSans-BlackItalic.woff') format('woff'),
+        url('../sitefonts/ProductSans-BlackItalic.ttf') format('truetype'),
+        url('../sitefonts/ProductSans-BlackItalic.svg#ProductSans-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+// Colors
+$color_primary: #8A2F35;
+$color_green: #40887A;
+$color_blue: #0668A8;
+$color_purple: #713F8A;
+$color_heading: #000;
+$color_text: #000;
+$color_light_grey: #f3f3f3;
+$color_site_grey: #f5f5f9;
+$color_border: #e8e8e8;
+$color_white: #ffffff;
+$color_black: #000000;
+
+$fw: "font-weight";
+$ff: "font-family";
+$fs: "font-size";
+$c: "color";
+
+
+// Brand color
+$color-facebook: #3b5998;
+$color-feedly: #2bb24c;
+$color-github: #333;
+$color-google: #dc4e41;
+$color-instagram: #3f729b;
+$color-linkedin: #0077b5;
+$color-medium: #00ab6b;
+$color-messenger: #0084ff;
+$color-rss: #f26522;
+$color-spotify: #2ebd59;
+$color-twitter: #55acee;
+
+// Font Size
+$base-font-size: 16;
+
+
+// Font Family
+// $font_title: 'Montserrat', sans-serif;
+// $font_product_sans: 'Product Sans';
+// $font_text: 'Open Sans', sans-serif;
+
+$font_text: 'Product Sans';
+$font_title: 'Product Sans';

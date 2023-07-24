@@ -1,0 +1,196 @@
+table {
+    width: 100%;
+
+    th,
+    td {
+        padding: rem(10px) rem(30px);
+        line-height: 1.5;
+
+        @include breakpoint(mobile) {
+            padding: 8px 15px;
+        }
+    }
+
+    thead {
+        tr {
+            th {
+                font-weight: 500;
+                background-color: #f4f4f4;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            td {
+                .btn {
+                    min-height: rem(32px);
+                    font-size: rem(16px);
+                    padding: rem(2px) rem(15px);
+                    white-space: nowrap;
+                    min-width: rem(68px);
+                }
+
+                input {
+                    height: rem(32px);
+                    min-width: rem(65px);
+                    max-width: rem(65px);
+                    text-align: center;
+                    padding-right: rem(5px);
+                    padding-left: rem(5px);
+                    border-width: 1px;
+                    border-color: #cacaca;
+
+                    &[readonly] {
+                        border-color: transparent;
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                td {
+                    background-color: #f4f4f4;
+                }
+            }
+        }
+    }
+
+    &.ansBias-table {
+
+        th,
+        td {
+
+            &:not(:nth-child(1), :nth-last-child(1)) {
+                text-align: center;
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    .btn {
+                        min-width: rem(68px);
+                    }
+                }
+            }
+        }
+    }
+
+    &.scoring-table {
+        border: 1px solid #9a9a9a;
+
+        tr {
+
+            td,
+            th {
+                border: 1px solid #9a9a9a;
+                padding: rem(10px) rem(12px);
+
+                &:not(:first-child) {
+                    text-align: center;
+                }
+            }
+        }
+
+        thead {
+            tr {
+                th {
+                    background-color: $color_white;
+                }
+            }
+        }
+
+        tbody {
+            table {
+                tr {
+                    td {
+                        border: none;
+                        padding: 0;
+
+                        .btn {
+                            &[class*="background"] {
+                                font-size: rem(11px);
+                                font-weight: 400;
+                                min-width: 1px;
+                                padding: rem(2px) rem(10px);
+                                pointer-events: none;
+                                z-index: 1;
+                                position: relative;
+                            }
+                        }
+
+                        &:first-child {
+                            text-align: right;
+                            padding-right: rem(5px);
+                        }
+
+                        &:last-child {
+                            text-align: left;
+                            padding-left: rem(5px);
+                        }
+
+                        &:only-child {
+                            text-align: center;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+
+            tr {
+                td {
+                    background-color: #f4f4f4;
+                    padding-top: rem(6px);
+                    padding-bottom: rem(6px);
+
+                    &.points {
+                        position: relative;
+
+                        >a {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: #9a9a9a;
+                            opacity: 0;
+                            visibility: hidden;
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                width: 50px;
+                                height: 100%;
+                                background-image: linear-gradient(to right, transparent, #9a9a9a 40%);
+                                z-index: 2;
+                            }
+
+                            &::after {
+                                content: "\f067";
+                                font-family: "Font Awesome 5 Free";
+                                font-weight: 900;
+                                color: #000;
+                                font-size: rem(12px);
+                                position: absolute;
+                                right: rem(10px);
+                                top: 50%;
+                                transform: translate(0, -50%);
+                                z-index: 3;
+                            }
+                        }
+
+                        &:hover {
+                            >a {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

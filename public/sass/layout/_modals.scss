@@ -1,0 +1,43 @@
+.modal-backdrop {
+    z-index: 9998;
+    background-color: $color_black;
+
+    &.show {
+        opacity: 0.56;
+    }
+}
+
+.modal {
+    z-index: 9999;
+
+    &.modal-password {
+        .modal-content {
+            background-color: rgba($color_white, 0.95);
+            border: 1px solid #595959;
+            border-radius: 15px;
+        }
+
+        .modal-body {
+            padding: 50px 40px;
+            position: relative;
+
+            @include breakpoint(mobile) {
+                padding: 40px 20px;
+            }
+
+            .btn-close {
+                opacity: 1;
+                background: #434343 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/12px auto no-repeat;
+                width: 25px;
+                height: 25px;
+                border-radius: 25px;
+                outline: none;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                position: absolute;
+                right: -1px;
+                top: -1px;
+            }
+        }
+    }
+}

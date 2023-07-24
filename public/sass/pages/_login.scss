@@ -1,0 +1,90 @@
+.login-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color_black, 0.56);
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .inner {
+        position: relative;
+        min-height: calc(100vh - 63.8px);
+        display: flex;
+        align-items: center;
+        padding: 140px 0 60px;
+
+        @include breakpoint(ipad) {
+            min-height: calc(100vh - 87.59px);
+        }
+
+        @include breakpoint(mobile) {
+            padding: 120px 0 50px;
+            min-height: calc(100vh - 154px);
+        }
+
+        .site-logo {
+            position: absolute;
+            top: 30px;
+            left: 0;
+            height: 45px;
+            display: inline-flex;
+
+            @include breakpoint(mobile) {
+                height: 40px;
+                top: 20px;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .left {
+            max-width: 335px;
+
+            h3,
+            p {
+                color: $color_white;
+            }
+        }
+    }
+}
+
+.login-form {
+    background-color: rgba($color_white, 0.85);
+    max-width: 400px;
+    margin-left: auto;
+    padding: 30px;
+    border-radius: 20px;
+
+    @include breakpoint(mobile) {
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 50px;
+    }
+
+    form {
+        >a {
+            font-family: $font_title;
+            color: $color_primary;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

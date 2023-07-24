@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.login-content {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+    padding: 15px;
+}
+
+.box {
+    border-radius: 20px;
+    padding: 40px 50px;
+    background-color: #fff;
+    max-width: 450px;
+    width: 100%;
+}
+
+.box>*:not(form) {
+    text-align: center;
+}
+
+.box figure {
+    margin-bottom: 8px;
+}
+
+.box p,
+.modal-body p {
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 0;
+    color: #000;
+    font-family: "Open Sans", sans-serif;
+}
+
+.box p {
+    font-size: 16px;
+}
+
+.modal-body p {
+    font-size: 14px;
+}
+
+.btn {
+    font-size: 14px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    line-height: normal;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    letter-spacing: 0px;
+    text-indent: 0px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.btn:hover {
+    transform: translateY(-0.15em);
+}
+
+.btn-primary,
+.btn-primary:hover {
+    background-color: #8A2F35;
+    border: 1px solid #595959;
+    color: #ffffff;
+}
+
+.form {
+    max-width: 350px;
+    margin: 30px auto 0;
+}
+
+.control-group {
+    margin-bottom: 10px;
+}
+
+.form .form-control {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 2px 15px;
+    height: 45px;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+.form .form-control:focus {
+    border-color: #8A2F35;
+}
+
+.form .form-control:placeholder {
+    opacity: 1;
+    color: #999999;
+}
+
+.form p a {
+    color: #8A2F35;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+}
+
+.form p:last-child a {
+    color: #000;
+    font-family: "Open Sans", sans-serif;
+}
+
+.form p a:hover {
+    text-decoration: underline;
+}
+
+.modal {
+    z-index: 999999;
+}
+
+.btn-close {
+    opacity: 1;
+    background: #434343 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/12px auto no-repeat;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+}
+
+.btn-close:hover {
+    background: #8A2F35 url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/12px auto no-repeat;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #595959;
+    border-radius: 15px;
+}
+
+.modal-body {
+    padding: 50px 40px;
+    position: relative;
+}
+
+.modal-body .form {
+    margin: 20px auto 0;
+}
+
+.modal-body .form {
+    margin: 20px auto 0;
+}
+
+.modal-body h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #8A2F35;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 767.98px) {
+    .box {
+        border-radius: 10px;
+        padding: 30px 30px;
+    }
+
+    .box p,
+    .modal-body p {
+        font-size: 12px;
+    }
+
+    .form {
+        margin: 20px auto 0;
+    }
+
+    .form .form-control {
+        font-size: 12px;
+        height: 40px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 11.5px 30px;
+    }
+
+    .modal-body {
+        padding: 40px 30px;
+    }
+
+    .modal-body h3 {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,300 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/clear-cache', function() {
+        Artisan::call('cache:clear');
+        Artisan::call('route:clear');
+        Artisan::call('config:cache');
+        Artisan::call('view:clear');
+        return "Cache is cleared";
+    });
+    
+Route::get('/', function () {
+    return view('frontend.index');
+});
+Route::get('/test', function () {
+    return view('frontend.test');
+});
+
+Route::get('/quiz', function () {return view('frontend.quiz');});
+Route::get('/statement', function () {return view('frontend.statement');});
+
+Route::post('/submit-form',[App\Http\Controllers\QuestionController::class, 'formdata'])->name('submit-form');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/result-summary', [App\Http\Controllers\ResultController::class, 'index'])->name('result-summary');
+Route::get('/upsell-1-on-1-session', [App\Http\Controllers\HomeController::class, 'sales'])->name('upsell-1-on-1-session');
+
+
+/*Relationship inner pages */
+Route::get('/primary-gifts', [App\Http\Controllers\RelationshipController::class, 'index'])->name('primary-gifts');
+Route::get('/relationship-qualities', [App\Http\Controllers\RelationshipController::class, 'relationship_qualities'])->name('relationship-qualities');
+Route::get('/themes', [App\Http\Controllers\RelationshipController::class, 'themes'])->name('themes');
+Route::get('/relationship-skills', [App\Http\Controllers\RelationshipController::class, 'relationship_skills'])->name('relationship-skills');
+Route::get('/reference', [App\Http\Controllers\RelationshipController::class, 'reference'])->name('reference');
+Route::get('/tendencies', [App\Http\Controllers\RelationshipController::class, 'tendencies'])->name('tendencies');
+Route::get('/energetic-profile', [App\Http\Controllers\RelationshipController::class, 'energetic_profile'])->name('energetic-profile');
+Route::get('/communication-profile', [App\Http\Controllers\RelationshipController::class, 'communication_profile'])->name('communication-profile');
+Route::get('/decision-making-profile', [App\Http\Controllers\RelationshipController::class, 'decision_making'])->name('decision-making-profile');
+Route::get('/parenting-profile', [App\Http\Controllers\RelationshipController::class, 'parenting_profile'])->name('parenting-profile');
+Route::get('/erotic-profile', [App\Http\Controllers\RelationshipController::class, 'erotic_profile'])->name('erotic-profile');
+
+/*Shadow inner pages*/
+Route::get('/shadow-qualities', [App\Http\Controllers\ShadowController::class, 'index'])->name('shadow-qualities');
+Route::get('/toxic-cycle', [App\Http\Controllers\ShadowController::class, 'toxic_cycle'])->name('toxic-cycle');
+Route::get('/sensitivities', [App\Http\Controllers\ShadowController::class, 'sensitivities'])->name('sensitivities');
+Route::get('/primary-needs', [App\Http\Controllers\ShadowController::class, 'primary_needs'])->name('primary-needs');
+Route::get('/biggest-doubts-and-fears', [App\Http\Controllers\ShadowController::class, 'biggest_doubts'])->name('biggest-doubts-and-fears');
+Route::get('/most-triggered-by', [App\Http\Controllers\ShadowController::class, 'triggered_by'])->name('most-triggered-by');
+Route::get('/conflict-profile', [App\Http\Controllers\ShadowController::class, 'conflict_profile'])->name('conflict-profile');
+
+/*Frontend pages*/
+Route::get('/introduction', [App\Http\Controllers\FrontendController::class, 'introduction'])->name('introduction');
+Route::get('/ring-of-resolution', [App\Http\Controllers\FrontendController::class, 'resolution'])->name('ring-of-resolution');
+Route::get('/how-to-read-your-results', [App\Http\Controllers\FrontendController::class, 'read_result'])->name('how-to-read-your-results');
+Route::get('/how-to-partner-with-you', [App\Http\Controllers\FrontendController::class, 'partner'])->name('how-to-partner-with-you');
+Route::get('/permanent-breakthrough', [App\Http\Controllers\FrontendController::class, 'breakthrough'])->name('permanent-breakthrough');
+Route::post('/markcomplete', [App\Http\Controllers\FrontendController::class, 'markcomplete']);
+Route::get('/terms-and-condition', [App\Http\Controllers\FrontendController::class, 'terms']);
+Route::get('/privacy-policy', [App\Http\Controllers\FrontendController::class, 'privacy']);
+Route::post('/update-contact-information', [App\Http\Controllers\FrontendController::class, 'contactInformation']);
+Route::post('update-password', [App\Http\Controllers\FrontendController::class, 'updatePassword']);
+
+
+/*PDF*/
+Route::get('/pdf', [App\Http\Controllers\PaymentController::class, 'pdf'])->name('pdf');
+Route::get('/pdfview', [App\Http\Controllers\PdfController::class, 'index'])->name('pdf-pdfview');
+Route::get('/pdf-view', [App\Http\Controllers\PdfController::class, 'view'])->name('pdfview');
+Route::get('/report', [App\Http\Controllers\PdfController::class, 'report'])->name('report');
+
+/*Questions*/
+Route::get('/questions',[App\Http\Controllers\QuestionController::class, 'index'])->name('questions');
+Route::get('/question',[App\Http\Controllers\QuestionController::class, 'question'])->name('question');
+Route::get('/get-questions',[App\Http\Controllers\QuestionController::class, 'get_questions'])->name('get-questions');
+Route::get('/get-next-questions',[App\Http\Controllers\QuestionController::class, 'get_next_questions'])->name('get-next-questions');
+Route::post('/survey-form',[App\Http\Controllers\SurveyController::class, 'index'])->name('survey-form');
+Route::get('/add-session',[App\Http\Controllers\QuestionController::class, 'add_session'])->name('add-session');
+Route::get('/add-shadow-session',[App\Http\Controllers\QuestionController::class, 'add_shadow_session'])->name('add-shadow-session');
+/*Free report */
+Route::get('/free-report', [App\Http\Controllers\FreeResultController::class, 'index'])->name('free-report');
+
+/*Payment*/
+Route::get('/upgrade-profile', [App\Http\Controllers\PaymentController::class, 'index'])->name('upgrade-profile');
+Route::post('/payment', [App\Http\Controllers\PaymentController::class, 'payment']);
+Route::post('/sales-payment', [App\Http\Controllers\PaymentController::class, 'sales_payment']);
+Route::get('/thankyou', [App\Http\Controllers\PaymentController::class, 'thankyou']);
+Route::get('/thank-you', [App\Http\Controllers\PaymentController::class, 'thankyou_page']);
+Route::post('/loginuser', [App\Http\Controllers\PaymentController::class, 'login_user'])->name('loginuser');
+Route::post('/loggedin', [App\Http\Controllers\PaymentController::class, 'loggedin'])->name('loggedin');
+Route::post('/fetch-states', [App\Http\Controllers\PaymentController::class, 'get_states'])->name('fetch-states');
+
+/* Shared Profile*/
+Route::get('/shared-profile', [App\Http\Controllers\SharedProfileController::class, 'index'])->name('shared-profile');
+Route::get('/free-summary', [App\Http\Controllers\SharedProfileController::class, 'index'])->name('free-profile');
+
+/*My Profile */
+Route::get('/my-profiles', [App\Http\Controllers\ProfileController::class, 'index'])->name('my-account');
+Route::post('/redirect', [App\Http\Controllers\ProfileController::class, 'redirect'])->name('redirect');
+Route::get('/my-courses', [App\Http\Controllers\ProfileController::class, 'programs'])->name('programs');
+Route::get('/get-support', [App\Http\Controllers\ProfileController::class, 'getsupport'])->name('get-support');
+Route::post('/contact-submit', [App\Http\Controllers\HomeController::class, 'contactus_submission'])->name('contactus_submission');
+Route::get('/my-account', [App\Http\Controllers\ProfileController::class, 'myAccount'])->name('myaccount');
+
+
+
+/*footer pages*/
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about'])->name('about');
+Route::post('/about', [App\Http\Controllers\HomeController::class, 'aboutMessage']);
+Route::get('/work-with-us', [App\Http\Controllers\HomeController::class, 'workwithus'])->name('work-with-us');
+Route::get('/contact-us', [App\Http\Controllers\HomeController::class, 'contactus'])->name('contact-us');
+Route::post('/waitlist-submit', [App\Http\Controllers\HomeController::class, 'waitlist_submit'])->name('waitlist_submit');
+Route::get('/permanent-relationship-breakthrough', [App\Http\Controllers\HomeController::class, 'permanent_relationship_breakthrough'])->name('permanent-relationship-breakthrough');
+
+
+
+
+
+
+// For Admin
+// Route::get('/admin/dashboard', [App\Http\Controllers\Backend\AdminController::class, 'index']);
+Route::get('/admin/payment-detail/{id}', [App\Http\Controllers\Backend\AdminController::class, 'payment_detail']);
+Route::get('/admin/payment', [App\Http\Controllers\Backend\AdminController::class, 'admin_payment']);
+Route::get('/admin/user', [App\Http\Controllers\Backend\AdminController::class, 'admin_user']);
+Route::get('/admin/pages/upsell-1-on-1-session', [App\Http\Controllers\Backend\AdminPageController::class, 'pages_1_on_1'])->name('upsell-1-on-1-sessions');
+Route::post('/admin/pages/create-page-1-1', [App\Http\Controllers\Backend\AdminPageController::class, 'create_page_1_1']);
+Route::get('/admin/pages/upgrade-profile', [App\Http\Controllers\Backend\AdminPageController::class, 'upgrade_profile']);
+Route::post('/admin/pages/create-upgrade-profile', [App\Http\Controllers\Backend\AdminPageController::class, 'create_upgrade_profile']);
+Route::get('/admin/all-quiz', [App\Http\Controllers\Backend\QuizController::class, 'index']);
+Route::get('/admin/all-submit-quiz', [App\Http\Controllers\Backend\QuizController::class, 'all_submit_quiz']);
+Route::get('/admin/all-question', [App\Http\Controllers\Backend\QuizController::class, 'all_question']);
+Route::get('/admin/pages/permanent-breakthrough', [App\Http\Controllers\Backend\AdminPageController::class, 'permanent_breakthrough']);
+Route::get('/admin/dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index']);
+Route::get('/admin/add-user', [App\Http\Controllers\Backend\DashboardController::class, 'addUser']);
+Route::post('/admin/create-user', [App\Http\Controllers\Backend\DashboardController::class, 'createUser']);
+Route::get('/admin/csv', [App\Http\Controllers\Backend\DashboardController::class, 'csv']);
+Route::get('/admin/subscription-price', [App\Http\Controllers\Backend\AdminController::class, 'subscription_price']);
+
+
+// Form Submit
+Route::post('/sec-1-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_1_submit_3con']);
+Route::post('/sec-3-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_3_submit_3con']);
+Route::post('/sec-3-element-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_3_element_submit_3con']);
+Route::post('/sec-4-element-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_4_element_submit_3con']);
+Route::post('/sec-5-element-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_5_element_submit_3con']);
+Route::post('/sec-6-element-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_6_element_submit_3con']);
+Route::post('/sec-7-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_7_submit_3con']);
+Route::post('/sec-7-element-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_7_element_submit_3con']);
+Route::post('/sec-8-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_8_submit_3con']);
+Route::post('/sec-9-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_9_submit_3con']);
+Route::post('/sec-10-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_10_submit_3con']);
+Route::post('/sec-10-submit-3_elemrnt', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_10_element_submit_3con']);
+Route::post('/sec-11-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_11_submit_3con']);
+Route::post('/sec-12-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_12_submit_3con']);
+Route::post('/sec-13-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_13_submit_3con']);
+Route::post('/sec-14-submit-3', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_14_submit_3con']);
+Route::post('/sec-14-submit-3_elemrnt', [App\Http\Controllers\Backend\AdminPageController::class, 'sec_14_element_submit_3con']);
+Route::get('/edit-testimonial-3', [App\Http\Controllers\Backend\AdminPageController::class, 'edit_testimonial_3']);
+Route::post('/update-breakthro-testimonial', [App\Http\Controllers\Backend\AdminPageController::class, 'update_breakthro_testimonial']);
+Route::get('/edit-course-curriculum-3', [App\Http\Controllers\Backend\AdminPageController::class, 'edit_course_curriculum_3']);
+Route::post('/update-course-element-3', [App\Http\Controllers\Backend\AdminPageController::class, 'update_course_element_3']);
+Route::get('/edit-right-course-3', [App\Http\Controllers\Backend\AdminPageController::class, 'edit_right_course_3']);
+Route::post('/update-right-course-3', [App\Http\Controllers\Backend\AdminPageController::class, 'update_right_course_3']);
+Route::get('/edit-faq-3', [App\Http\Controllers\Backend\AdminPageController::class, 'edit_faq_3']);
+Route::get('/delete-faq-3', [App\Http\Controllers\Backend\AdminPageController::class, 'delete_faq_3']);
+
+Route::post('/update-faq-3', [App\Http\Controllers\Backend\AdminPageController::class, 'update_faq_3']);
+Route::get('/delete-you-get', [App\Http\Controllers\Backend\AdminPageController::class, 'delete_you_get']);
+// Submit quiz score
+Route::post('/admin/rank1-submit', [App\Http\Controllers\Backend\QuizController::class, 'rank1_submit']);
+Route::post('/admin/rank2-submit', [App\Http\Controllers\Backend\QuizController::class, 'rank2_submit']);
+Route::post('/admin/rank3-submit', [App\Http\Controllers\Backend\QuizController::class, 'rank3_submit']);
+Route::post('/admin/rank4-submit', [App\Http\Controllers\Backend\QuizController::class, 'rank4_submit']);
+Route::get('/admin/form1-select', [App\Http\Controllers\Backend\QuizController::class, 'form1_select']);
+Route::get('/admin/form2-select', [App\Http\Controllers\Backend\QuizController::class, 'form2_select']);
+Route::get('/admin/form3-select', [App\Http\Controllers\Backend\QuizController::class, 'form3_select']);
+Route::get('/admin/form4-select', [App\Http\Controllers\Backend\QuizController::class, 'form4_select']);
+Route::get('/admin/welcome-screen', [App\Http\Controllers\Backend\QuizController::class, 'welcome_screen']);
+Route::get('/admin/score-quiz/{id}', [App\Http\Controllers\Backend\QuizController::class, 'score_quiz']);
+Route::get('/admin/feedback', [App\Http\Controllers\Backend\QuizController::class, 'adminfeedback']);
+Route::get('/admin/feedback-detail/{id}', [App\Http\Controllers\Backend\QuizController::class, 'feedback_detail']);
+
+
+
+Route::get('/admin/edit-question/{id}', [App\Http\Controllers\Backend\QuizController::class, 'edit_question']);
+Route::post('/admin/quiz-question-edit/{id}', [App\Http\Controllers\Backend\QuizController::class, 'quiz_question_edit']);
+Route::get('/admin/score-quiz-all', [App\Http\Controllers\Backend\QuizController::class, 'score_quiz_all']);
+Route::get('/admin/score-quiz-question', [App\Http\Controllers\Backend\QuizController::class, 'score_quiz_question']);
+Route::get('/admin/add-question', [App\Http\Controllers\Backend\QuizController::class, 'question_multiple_choice']);
+Route::get('/admin/quiz/quiz-detail/{id}', [App\Http\Controllers\Backend\QuizController::class, 'quiz_detail']);
+// FOr Bias
+Route::get('/admin/adjust-answer-bias', [App\Http\Controllers\Backend\BiasController::class, 'adjust_answer_bias']);
+Route::post('/update-bias', [App\Http\Controllers\Backend\BiasController::class, 'update_bias']);
+//For 1-on-1-testimonial
+Route::get('/admin/1-on-1-testimonial', [App\Http\Controllers\Backend\AdminController::class, 'list_testimonial_1on1']);    
+Route::get('/admin/1-on-1-testimonial/add', [App\Http\Controllers\Backend\AdminController::class, 'add_testimonial_1on1']);
+Route::post('/admin/1-on-1-testimonial/create', [App\Http\Controllers\Backend\AdminController::class, 'insert_testimonial_1on1']);
+Route::get('/admin/1-on-1-testimonial/edit/{id}', [App\Http\Controllers\Backend\AdminController::class, 'edit_testimonial_1on1']); 
+Route::post('/admin/1-on-1-testimonial/update/{id}', [App\Http\Controllers\Backend\AdminController::class, 'update_testimonial_1on1']);
+Route::get('/admin/1-on-1-testimonial/delete/{id}', [App\Http\Controllers\Backend\AdminController::class, 'delete_testimonial_1on1']);
+Route::POST('/admin/update-testimonial-status', [App\Http\Controllers\Backend\AdminController::class, 'update_testimonial_status']);
+
+//For testimonial
+Route::get('/admin/testimonial', [App\Http\Controllers\Backend\AdminController::class, 'list_testimonial']);    
+Route::get('/admin/testimonial/add', [App\Http\Controllers\Backend\AdminController::class, 'add_testimonial']);
+Route::post('/admin/testimonial/create', [App\Http\Controllers\Backend\AdminController::class, 'insert_testimonial']);
+Route::get('/admin/testimonial/edit/{id}', [App\Http\Controllers\Backend\AdminController::class, 'edit_testimonial']); 
+Route::post('/admin/testimonial/update/{id}', [App\Http\Controllers\Backend\AdminController::class, 'update_testimonial']);
+Route::get('/admin/testimonial/delete/{id}', [App\Http\Controllers\Backend\AdminController::class, 'delete_testimonial']);
+//For plan
+Route::get('/admin/plan', [App\Http\Controllers\Backend\AdminController::class, 'list_plans']);    
+Route::get('/admin/plan/add', [App\Http\Controllers\Backend\AdminController::class, 'add_plan']);
+Route::post('/admin/plan/create', [App\Http\Controllers\Backend\AdminController::class, 'insert_plan']);
+Route::get('/admin/plan/edit/{id}', [App\Http\Controllers\Backend\AdminController::class, 'edit_plan']); 
+Route::post('/admin/plan/update/{id}', [App\Http\Controllers\Backend\AdminController::class, 'update_plan']);
+Route::get('/admin/plan/delete/{id}', [App\Http\Controllers\Backend\AdminController::class, 'delete_plan']); 
+//For Upgrade
+Route::get('/admin/upgrade', [App\Http\Controllers\Backend\AdminController::class, 'list_upgrade']);    
+Route::get('/admin/upgrade/add', [App\Http\Controllers\Backend\AdminController::class, 'add_upgrade']);
+Route::post('/admin/upgrade/create', [App\Http\Controllers\Backend\AdminController::class, 'insert_upgrade']);
+Route::get('/admin/upgrade/edit/{id}', [App\Http\Controllers\Backend\AdminController::class, 'edit_upgrade']); 
+Route::post('/admin/upgrade/update/{id}', [App\Http\Controllers\Backend\AdminController::class, 'update_upgrade']);
+Route::get('/admin/upgrade/delete/{id}', [App\Http\Controllers\Backend\AdminController::class, 'delete_upgrade']);
+//For Reasons
+Route::get('/admin/reasons', [App\Http\Controllers\Backend\AdminController::class, 'list_reason']);    
+Route::get('/admin/reason/add', [App\Http\Controllers\Backend\AdminController::class, 'add_reason']);
+Route::post('/admin/reason/create', [App\Http\Controllers\Backend\AdminController::class, 'insert_reason']);
+Route::get('/admin/reason/edit/{id}', [App\Http\Controllers\Backend\AdminController::class, 'edit_reason']); 
+Route::post('/admin/reason/update/{id}', [App\Http\Controllers\Backend\AdminController::class, 'update_reason']);
+Route::get('/admin/reason/delete/{id}', [App\Http\Controllers\Backend\AdminController::class, 'delete_reason']);  
+// For Asked Question
+Route::get('/admin/asked-question', [App\Http\Controllers\Backend\AdminController::class, 'list_asked_question']);    
+Route::get('/admin/asked-question/add', [App\Http\Controllers\Backend\AdminController::class, 'add_asked_question']);
+Route::post('/admin/asked-question/create', [App\Http\Controllers\Backend\AdminController::class, 'insert_asked_question']);
+Route::get('/admin/asked-question/edit/{id}', [App\Http\Controllers\Backend\AdminController::class, 'edit_asked_question']); 
+Route::post('/admin/asked-question/update/{id}', [App\Http\Controllers\Backend\AdminController::class, 'update_asked_question']);
+Route::get('/admin/asked-question/delete/{id}', [App\Http\Controllers\Backend\AdminController::class, 'delete_asked_question']);
+//Welcome screen
+Route::post('/admin/welcome-screen-add', [App\Http\Controllers\Backend\QuizController::class, 'welcone_screen_add']);
+Route::post('/welcome-background-image', [App\Http\Controllers\Backend\QuizController::class, 'welcome_background_image']);
+Route::post('/admin/welcome-background-image-link', [App\Http\Controllers\Backend\QuizController::class, 'welcome_background_image_link']);
+Route::post('/welcome-form', [App\Http\Controllers\Backend\QuizController::class, 'welcome_form_submit']);    
+//Add question
+Route::post('/multiple-question', [App\Http\Controllers\Backend\QuizController::class, 'multiple_question']);
+Route::get('/pubdata', [App\Http\Controllers\Backend\QuizController::class, 'pubdata']);
+Route::get('/publish-qus', [App\Http\Controllers\Backend\QuizController::class, 'publish_qus']);
+
+Route::post('/page3-testimonial', [App\Http\Controllers\Backend\AdminPageController::class, 'page3_testimonial']);
+
+
+
+/*User */
+Route::get('/view-user/{id}', [App\Http\Controllers\Backend\UserController::class, 'view']);
+Route::get('/revoke-user/{id}', [App\Http\Controllers\Backend\UserController::class, 'revoke']);
+Route::get('/edit-user/{id}', [App\Http\Controllers\Backend\UserController::class, 'index']);
+Route::post('/update-profile', [App\Http\Controllers\Backend\UserController::class, 'updateprofile']);
+Route::get('/send-email', [App\Http\Controllers\Backend\UserController::class, 'sendemail']);
+
+/*Integration*/
+Route::get('/admin/integration', [App\Http\Controllers\Backend\IntegrationController::class, 'index']);
+Route::post('/imortexcel_form', [App\Http\Controllers\Backend\IntegrationController::class, 'imortexcel_insert']);
+
+
+    // Delete Question
+Route::get('/delete-question_id', [App\Http\Controllers\Backend\QuizController::class, 'delete_question']);
+
+
+Route::post('profile-image-upload', [App\Http\Controllers\FrontendController::class, 'profileImage']);
+
+Route::get('/feedback-submit', [App\Http\Controllers\RelationshipController::class, 'feedback_submit']);
+Route::get('/admin/quiz-detail/{id}', [App\Http\Controllers\Backend\QuizController::class, 'quizdetail']);
+Route::get('/admin/update-answer', [App\Http\Controllers\Backend\QuizController::class, 'update_answer']);
+Route::get('/admin/update-que', [App\Http\Controllers\Backend\QuizController::class, 'update_que']);
+
+
+Route::get('/admin/content-upload', [App\Http\Controllers\Backend\UploadController::class, 'index']);
+Route::post('/importexcel_content', [App\Http\Controllers\Backend\UploadController::class, 'upload']);
+
+
+
+    
+
+  
+
+
+
+
+
+

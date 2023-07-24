@@ -1,0 +1,192 @@
+// a:focus-visible {
+//     outline: 2px dashed $cPrimary !important;
+// }
+
+figure {
+    margin: 0;
+}
+
+.background {
+    &_primary {
+        background-color: $color_primary !important;
+    }
+
+    &_green {
+        background-color: $color_green !important;
+    }
+
+    &_blue {
+        background-color: $color_blue !important;
+    }
+
+    &_purple {
+        background-color: $color_purple !important;
+    }
+
+    &_white {
+        background-color: $color_white;
+    }
+
+    &_light_grey {
+        background-color: $color_light_grey;
+    }
+
+    &_black {
+        background-color: $color_black;
+
+        * {
+            color: $color_white;
+        }
+    }
+}
+
+.color {
+    &_primary {
+        color: $color_primary !important;
+    }
+
+    &_green {
+        color: $color_green !important;
+    }
+
+    &_blue {
+        color: $color_blue !important;
+    }
+
+    &_purple {
+        color: $color_purple !important;
+    }
+
+    &_white {
+        color: $color_white;
+    }
+
+    &_black {
+        color: $color_black;
+    }
+
+    &_light_grey {
+        color: $color_light_grey;
+    }
+}
+
+.font {
+    &_text {
+        font-family: $font_text;
+    }
+
+    &_title {
+        font-family: $font_title;
+    }
+}
+
+.u {
+    &Space {
+        padding: 100px 0;
+
+        @include breakpoint(normal) {
+            padding: 60px 0;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 40px 0;
+        }
+    }
+
+    &TSpace {
+        padding: 100px 0 0 0;
+
+        @include breakpoint(normal) {
+            padding: 60px 0 0 0;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 40px 0 0 0;
+        }
+    }
+
+    &BSpace {
+        padding: 0 0 100px 0;
+
+        @include breakpoint(normal) {
+            padding: 0 0 60px 0;
+        }
+
+        @include breakpoint(mobile) {
+            padding: 0 0 40px 0;
+        }
+    }
+
+    &HSpace {
+        padding: 40px 0;
+    }
+}
+
+.maxWidth {
+    &_100 {
+        max-width: 100px;
+    }
+
+    &_300 {
+        max-width: 300px;
+    }
+
+    &_330 {
+        max-width: 330px;
+    }
+
+    &_400 {
+        max-width: 400px;
+    }
+
+    &_500 {
+        max-width: 500px;
+    }
+
+    &_850 {
+        max-width: 850px;
+    }
+
+    &_950 {
+        max-width: 950px;
+    }
+}
+
+.mt-6 {
+    margin-top: 6rem !important;
+
+    @include breakpoint(mobile) {
+        margin-top: 3rem !important;
+    }
+}
+
+.mb-6 {
+    margin-bottom: 6rem !important;
+
+    @include breakpoint(mobile) {
+        margin-bottom: 3rem !important;
+    }
+}
+
+.my-6 {
+    margin-top: 6rem !important;
+    margin-bottom: 6rem !important;
+
+    @include breakpoint(mobile) {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
+    }
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    @include breakpoint(mobile) {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}

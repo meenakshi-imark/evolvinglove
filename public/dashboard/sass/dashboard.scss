@@ -1,0 +1,41 @@
+/*!
+CSS Document
+Project Name: Envolving Love
+Project Description:
+Written By: iMark Infotech - Gurinder Singh
+Created On: 01-11-2021
+Last Modified:
+*/
+// Vendors and external stylesheets
+@import "vendors/bootstrap";
+@import "vendors/line-awesome";
+@import "vendors/font-awesome";
+@import "vendors/swiper-slider";
+@import "vendors/aos";
+@import url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css);
+// @import "vendors/bootstrap-select-country";
+// @import "vendors/select2";
+
+// Sass utilities
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/mixins";
+
+// Base stuffs
+@import "base/reset";
+@import "base/typography";
+
+// Components and modules
+@import "components/buttons";
+
+// Layout related stylesheets
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sidebar";
+@import "layout/forms";
+@import "layout/modals";
+@import "layout/table";
+@import "layout/style";
+
+// Page-specific stylesheets
+@import "pages/index";

@@ -1,0 +1,238 @@
+.site-header {
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: right;
+    padding: 15px 60px;
+    background-color: #8a2633;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+
+    @include breakpoint(normal) {
+        padding: 15px 25px;
+    }
+
+    @include breakpoint(mobile) {
+        padding: 15px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .site-logo {
+            height: 45px;
+            display: inline-flex;
+
+            @include breakpoint(mobile) {
+                height: 40px;
+            }
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            .site-hamburgur {
+                height: 35px;
+                width: 35px;
+                background-color: $color_white;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: $color_primary;
+                font-size: rem(20px);
+                margin-right: 20px;
+            }
+        }
+
+        .right {
+            display: flex;
+            align-items: center;
+
+            >.btn {
+                &:not(.upgrade-btn) {
+                    @include breakpoint(mobile) {
+                        font-size: 0;
+                        padding: 0;
+                        height: 35px;
+                        width: 35px;
+                        border-width: 1px;
+
+                        img {
+                            margin-left: 0;
+                            top: 0;
+                        }
+                    }
+                }
+
+                &.upgrade-btn {
+                    @include breakpoint(mobile) {
+                        font-size: rem(11px);
+                        padding: 10px 15px;
+                    }
+                }
+            }
+
+            .dropdown {
+                margin-left: 30px;
+
+                @include breakpoint(mobile) {
+                    margin-left: 15px;
+                }
+
+                .dropdown-toggle {
+                    padding: 0;
+                    color: $color_white;
+
+                    @include breakpoint(mobile) {
+                        height: 35px;
+                        min-width: 35px;
+                    }
+
+                    i {
+                        font-size: rem(25px);
+
+                        @include breakpoint(mobile) {
+                            font-size: rem(20px);
+                        }
+                    }
+
+                    &::after {
+                        content: "\f0d7";
+                        color: $color_white;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        font-size: rem(18px);
+                        line-height: 1;
+                        border: none;
+                        margin-left: 5px;
+                        vertical-align: middle;
+
+                        @include breakpoint(mobile) {
+                            font-size: rem(12px);
+                        }
+                    }
+                }
+
+                .dropdown-menu {
+                    border: none;
+                    border-radius: 0;
+                    background-color: transparent;
+                    padding: 15px 0 0;
+                    right: -4px !important;
+                    left: auto !important;
+                    top: 100% !important;
+                    transform: translate(0) !important;
+
+                    @include breakpoint(mobile) {
+                        padding: 12px 0 0;
+                        right: -5px !important;
+                        min-width: 140px;
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        top: 5px;
+                        width: 0;
+                        height: 0;
+                        border-left: 10px solid transparent;
+                        border-right: 10px solid transparent;
+                        border-bottom: 10px solid rgba($color_primary, 0.8);
+
+                        @include breakpoint(mobile) {
+                            right: 4px;
+                            top: 6px;
+                            border-width: 6px;
+                        }
+                    }
+
+                    ul {
+                        background-color: rgba($color_primary, 0.8);
+                        padding: 12px 0;
+
+                        @include breakpoint(mobile) {
+                            padding: 8px 0;
+                        }
+
+                        li {
+                            &:not(:last-child) {
+                                margin-bottom: 0;
+                            }
+
+                            a {
+                                font-size: rem(16px);
+                                font-weight: 400;
+                                color: $color_white;
+                                text-transform: uppercase;
+                                padding: 8px 20px;
+                                white-space: nowrap;
+                                line-height: 1.2;
+                                font-family: $font_title;
+                                display: flex;
+                                align-items: center;
+                                width: 100%;
+
+                                @include breakpoint(ipad) {
+                                    font-size: rem(14px);
+                                }
+
+                                @include breakpoint(mobile) {
+                                    font-size: rem(12px);
+                                    padding: 8px 15px;
+                                }
+
+                                i {
+                                    font-size: rem(16px);
+                                    margin-left: 6px;
+                                    position: relative;
+                                    top: -1px;
+
+                                    @include breakpoint(mobile) {
+                                        font-size: rem(14px);
+                                        top: 0;
+                                    }
+                                }
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-quiz {
+        background-color: transparent;
+        position: fixed;
+
+        @include breakpoint(mobile) {
+            .site-header {
+                padding: 10px 15px;
+            }
+        }
+
+        &.scrolled {
+            background-color: $color_primary;
+        }
+
+        nav {
+            @include breakpoint(mobile) {
+                justify-content: center;
+            }
+        }
+    }
+}

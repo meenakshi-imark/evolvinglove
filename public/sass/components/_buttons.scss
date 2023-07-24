@@ -1,0 +1,111 @@
+.btn {
+    // min-height: 45px;
+    font-size: rem(14px);
+    padding: 10px 30px;
+    border-radius: 30px;
+    line-height: normal;
+    @include btn(600, uppercase);
+    font-family: $font_title;
+    position: relative;
+    @include transition;
+
+    @include breakpoint(mobile) {
+        font-size: rem(12px);
+    }
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        transform: translateY(-0.15em);
+    }
+
+    // &.h-55 {
+    //     min-height: 55px;
+    // }
+
+    &.btn-primary {
+        background-color: $color_primary;
+        border: 1px solid #595959;
+        color: $color_white;
+
+        &:hover {
+            background-color: $color_primary;
+        }
+
+        &.hover-br {
+            &:hover {
+                background-color: transparent;
+                border-color: $color_primary;
+                color: $color_primary;
+            }
+        }
+
+        &.br {
+            background-color: transparent;
+            border: 2px solid $color_primary;
+            color: $color_primary;
+
+            &:hover {
+                background-color: $color_primary;
+                color: $color_white;
+            }
+        }
+    }
+
+    &.btn-secondary {
+        background-color: $color_text;
+        border: 1px solid $color_text;
+        color: $color_white;
+
+        &:hover {
+            background-color: $color_primary;
+        }
+    }
+
+    &.btn-green {
+        background-color: $color_green;
+        border: 1px solid $color_green;
+        color: $color_white;
+
+        &:hover {
+            background-color: $color_green;
+        }
+    }
+
+    &.btn-white {
+        background-color: transparent;
+        border: 2px solid $color_white;
+        color: $color_white;
+
+        &:hover {
+            background-color: $color_green;
+            border-color: $color_green;
+        }
+
+        &-filled {
+            background-color: $color_white;
+            border: 2px solid $color_primary;
+            color: $color_primary;
+
+            &:hover {
+                background-color: $color_primary;
+                color: $color_white;
+            }
+        }
+    }
+
+    img {
+        height: 18px;
+        margin-left: 10px;
+        position: relative;
+        top: -1px;
+        @include transition;
+
+        @include breakpoint(mobile) {
+            height: 12px;
+        }
+    }
+}

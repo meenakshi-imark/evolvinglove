@@ -1,0 +1,64 @@
+.site-footer {
+    padding: 20px 0;
+
+    ul {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @include breakpoint(mobile) {
+            justify-content: center;
+        }
+
+        li {
+            margin: 0;
+            display: inline-flex;
+            align-items: center;
+
+            &:not(:last-child)::after {
+                content: "|";
+                margin: 0 10px;
+                color: $color_white;
+                line-height: 1;
+                position: relative;
+                top: -2px;
+            }
+
+            a {
+                color: $color_white;
+                font-family: $font_title;
+                text-transform: uppercase;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    p {
+        color: $color_white;
+
+        @include breakpoint(mobile) {
+            position: relative;
+            padding-top: 15px;
+            margin-top: 15px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 0;
+                transform: translate(-50%, 0%);
+                background: rgba($color_white ,0.1);
+                width: 100px;
+                height: 1px;
+            }
+        }
+
+        a {
+            color: $color_white;
+            text-decoration: underline;
+        }
+    }
+}
